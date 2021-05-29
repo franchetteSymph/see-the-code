@@ -1,14 +1,15 @@
 import React from "react";
-import Link from "@material-ui/core/Link";
+// import Link from "@material-ui/core/Link";
 import Title from "../atoms/Title";
 import AceEditor from "react-ace";
 
-import "ace-builds/src-noconflict/mode-java";
-import "ace-builds/src-noconflict/theme-github";
+// import "../../helpers/editor-imports";
+import { LANGUAGES, THEMES } from "../../helpers/editor-imports";
+import Select from "../atoms/Select";
 
-function preventDefault(event) {
-  event.preventDefault();
-}
+// function preventDefault(event) {
+//   event.preventDefault();
+// }
 
 export default function Editor() {
   const onChange = (newValue) => {
@@ -40,6 +41,9 @@ export default function Editor() {
         value={`function onLoad(editor) \n{ console.log("i've loaded"); }`}
         setOptions={editorOptions}
       />
+
+      <Select options={LANGUAGES} label="Language" />
+      <Select options={THEMES} label="Theme" />
       {/* <div>
         <Link color="primary" href="#" onClick={preventDefault}>
           View balance
